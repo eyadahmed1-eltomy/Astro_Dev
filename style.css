@@ -51,7 +51,6 @@ body {
     background-color: var(--bg-darker);
     color: var(--text-main);
     overflow-x: hidden;
-    cursor: none;
     /* إخفاء المؤشر الأساسي لاستخدام المؤشر المخصص */
 }
 
@@ -72,33 +71,8 @@ header h1,
 .btn-primary,
 .btn-secondary,
 .settings-content,
-.settings-btn,
-.cursor,
-.cursor2 {
+.settings-btn {
     transition: background-color 300ms ease, color 300ms ease, box-shadow 300ms ease, border-color 300ms ease, transform 200ms ease;
-}
-
-/* Custom Cursor */
-.cursor,
-.cursor2 {
-    position: fixed;
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    transform: translate(-50%, -50%);
-}
-
-.cursor {
-    width: 8px;
-    height: 8px;
-    background-color: var(--primary);
-}
-
-.cursor2 {
-    width: 40px;
-    height: 40px;
-    border: 1px solid var(--primary);
-    transition: all 0.1s ease-out;
 }
 
 /* Background Stars Animation */
@@ -819,4 +793,5 @@ section h2 {
     .stair-step {
         width: 100%;
     }
+
 }
