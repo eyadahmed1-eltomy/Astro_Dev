@@ -75,6 +75,7 @@ header h1,
     transition: background-color 300ms ease, color 300ms ease, box-shadow 300ms ease, border-color 300ms ease, transform 200ms ease;
 }
 
+
 /* Background Stars Animation */
 .stars-bg {
     position: fixed;
@@ -793,5 +794,4 @@ section h2 {
     .stair-step {
         width: 100%;
     }
-
 }
