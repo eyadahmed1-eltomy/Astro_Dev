@@ -604,141 +604,32 @@ section h2 {
     }
 }
 
-/* Settings Button */
-.settings-btn {
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    border: 1px solid var(--glass-border);
-    color: var(--text-main);
-    font-size: 18px;
-    padding: 10px 12px;
+/* Theme Toggle Button */
+.theme-btn {
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    font-size: 1.2rem;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     cursor: pointer;
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+    box-shadow: 0 0 10px rgba(56, 189, 248, 0.2);
 }
 
-.settings-btn:hover {
-    transform: rotate(20deg) scale(1.1);
-    box-shadow: 0 0 20px rgba(56, 189, 248, 0.6);
+.theme-btn:hover {
+    background: var(--primary);
+    color: var(--bg-darker);
+    transform: rotate(15deg) scale(1.1);
+    box-shadow: 0 0 20px var(--primary);
 }
 
-.settings-btn:active {
-    transform: rotate(20deg) scale(0.95);
-}
-
-/* settings content */
-.settings-content {
-    position: fixed;
-    top: 80px;
-    right: 20px;
-    width: 300px;
-    background: var(--glass);
-    backdrop-filter: blur(12px);
-    border: 1px solid var(--glass-border);
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0 0 30px rgba(56, 189, 248, 0.2);
-    display: none;
-    z-index: 1001;
-}
-
-.settings-active {
-    display: block;
-    background: var(--bg-dark);
-}
-
-.settings-content h3 {
-    right: 80px;
-    position: absolute;
-    top: -50px;
-    color: var(--text-main);
-}
-
-/* dark mode toggle */
-.customCheckBoxHolder {
-    margin: 5px;
-    display: flex;
-}
-
-.customCheckBox {
-    width: fit-content;
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    user-select: none;
-    padding: 2px 8px;
-    background-color: rgba(0, 0, 0);
-    border-radius: 0px;
-    color: rgba(255, 255, 255);
-    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
-    transition-duration: 300ms;
-    transition-property: color, background-color, box-shadow;
-    display: flex;
-    height: 32px;
-    align-items: center;
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 1px 0px inset, rgba(255, 255, 255, 0.17) 0px 1px 1px 0px;
-    outline: none;
-    justify-content: center;
-    min-width: 55px;
-}
-
-.customCheckBox:hover {
-    background-color: #2c2c2c;
-    color: white;
-    box-shadow: rgba(0, 0, 0, 0.23) 0px -4px 1px 0px inset, rgba(255, 255, 255, 0.17) 0px -1px 1px 0px, rgba(0, 0, 0, 0.17) 0px 2px 4px 1px;
-}
-
-.customCheckBox .inner {
-    font-size: 18px;
-    font-weight: 900;
-    pointer-events: none;
-    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
-    transition-duration: 300ms;
-    transition-property: transform;
-    transform: translateY(0px);
-}
-
-.customCheckBox:hover .inner {
-    transform: translateY(-2px);
-}
-
-.customCheckBoxWrapper:first-of-type .customCheckBox {
-    border-bottom-left-radius: 5px;
-    border-top-left-radius: 5px;
-    border-right: 0px;
-}
-
-.customCheckBoxWrapper:last-of-type .customCheckBox {
-    border-bottom-right-radius: 5px;
-    border-top-right-radius: 5px;
-    border-left: 0px;
-}
-
-.customCheckBoxInput {
-    display: none;
-}
-
-.customCheckBoxInput:checked+.customCheckBoxWrapper .customCheckBox {
-    background-color: #F1F1F1;
-    color: black;
-    box-shadow: rgba(0, 0, 0, 0.23) 0px -4px 1px 0px inset, rgba(255, 255, 255, 0.17) 0px -1px 1px 0px, rgba(0, 0, 0, 0.17) 0px 2px 4px 1px;
-}
-
-.customCheckBoxInput:checked+.customCheckBoxWrapper .customCheckBox .inner {
-    transform: translateY(-2px);
-}
-
-.customCheckBoxInput:checked+.customCheckBoxWrapper .customCheckBox:hover {
-    background-color: #F1F1F1;
-    color: black;
-    box-shadow: rgba(0, 0, 0, 0.26) 0px -4px 1px 0px inset, rgba(255, 255, 255, 0.17) 0px -1px 1px 0px, rgba(0, 0, 0, 0.15) 0px 3px 6px 2px;
-}
-
-.customCheckBoxWrapper .customCheckBox:hover .inner {
-    transform: translateY(-2px);
+.theme-btn:active {
+    transform: rotate(15deg) scale(0.95);
 }
 
 /* Mobile */
