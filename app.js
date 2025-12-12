@@ -146,3 +146,19 @@ function initAccent() {
 }
 
 initAccent();
+
+function sendEmail() {
+    let params = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        message: document.getElementById('message').value,
+        time: new Date().toISOString(),
+    };
+
+    emailjs.send("service_u8ka2p8","template_2x15fr8",params)
+        .then(function (response) {
+            console.log('SUCCESS!', response.status, response.text);
+        }, function (error) {
+            console.log('FAILED...', error);
+        });
+}
