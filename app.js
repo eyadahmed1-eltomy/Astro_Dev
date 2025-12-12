@@ -74,68 +74,55 @@ cards.forEach(card => {
 });
 
 
-// Dark Mode Toggle with System Preference
-const darkModeToggle = document.getElementById('darkModeToggle');
-const html = document.documentElement;
+// Dark Mode Toggle Logic
+const themeBtn = document.getElementById('theme-toggle');
+const themeIcon = themeBtn.querySelector('i');
 
-// Check system preference and localStorage
-function initDarkMode() {
-    const savedMode = localStorage.getItem('darkMode');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-    // Priority: localStorage > system preference
-    if (savedMode !== null) {
-        if (savedMode === 'true') {
-            document.body.classList.add('dark-mode');
-            document.body.classList.remove('light-mode');
-            darkModeToggle.checked = true;
-        } else {
-            document.body.classList.add('light-mode');
-            document.body.classList.remove('dark-mode');
-            darkModeToggle.checked = false;
-        }
-    } else if (prefersDark) {
+// Helper to set theme
+function setTheme(isDark) {
+    if (isDark) {
         document.body.classList.add('dark-mode');
         document.body.classList.remove('light-mode');
-        darkModeToggle.checked = true;
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+        localStorage.setItem('darkMode', 'true');
     } else {
         document.body.classList.add('light-mode');
         document.body.classList.remove('dark-mode');
-        darkModeToggle.checked = false;
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
+        localStorage.setItem('darkMode', 'false');
     }
 }
 
-// Initialize on page load
-initDarkMode();
+// Initialize Theme
+function initTheme() {
+    const savedMode = localStorage.getItem('darkMode');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-// Toggle dark mode
-darkModeToggle.addEventListener('change', () => {
-    document.getElementsByClassName('settings-content')[0].classList.remove('settings-active');
-    if (darkModeToggle.checked) {
-        document.body.classList.remove('light-mode');
-        document.body.classList.add('dark-mode');
-        localStorage.setItem('darkMode', 'true');
+    if (savedMode === 'true') {
+        setTheme(true);
+    } else if (savedMode === 'false') {
+        setTheme(false);
     } else {
-        document.body.classList.remove('dark-mode');
-        document.body.classList.add('light-mode');
-        localStorage.setItem('darkMode', 'false');
+        // Default to system preference
+        setTheme(prefersDark);
     }
+}
+
+// Event Listener for Toggle
+themeBtn.addEventListener('click', () => {
+    const isDark = document.body.classList.contains('dark-mode');
+    setTheme(!isDark);
 });
 
-// Listen for system color scheme changes
-const darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)');
-darkModeQuery.addEventListener('change', (e) => {
-    // Only auto-switch if user hasn't manually set a preference
+// Initialize on load
+initTheme();
+
+// Listen for system changes (only if no manual override)
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
     if (localStorage.getItem('darkMode') === null) {
-        if (e.matches) {
-            document.body.classList.remove('light-mode');
-            document.body.classList.add('dark-mode');
-            darkModeToggle.checked = true;
-        } else {
-            document.body.classList.remove('dark-mode');
-            document.body.classList.add('light-mode');
-            darkModeToggle.checked = false;
-        }
+        setTheme(e.matches);
     }
 });
 
