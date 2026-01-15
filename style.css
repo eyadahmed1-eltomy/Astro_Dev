@@ -546,7 +546,8 @@ section h2 {
 }
 
 .ceo {
-    transform: scale(1.5);
+    width: 250px;
+    hight: 300px;
 }
 /* Contact Form */
 .contact-wrapper {
@@ -809,4 +810,5 @@ section h2 {
         width: 100%;
     }
 }
+
 
