@@ -545,6 +545,9 @@ section h2 {
     color: var(--primary);
 }
 
+.ceo {
+    transform: scale(1.5);
+}
 /* Contact Form */
 .contact-wrapper {
     display: flex;
@@ -806,3 +809,4 @@ section h2 {
         width: 100%;
     }
 }
+
